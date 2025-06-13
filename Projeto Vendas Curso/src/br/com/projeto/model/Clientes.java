@@ -1,14 +1,16 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
-package model;
+package br.com.projeto.model;
 
 /**
  *
- * @author clebe
+ * @author Caio Duarte
  */
-public class Cliente {
+public class Clientes {
+    
     //Atributos
     private int id;
     private String nome;
@@ -23,13 +25,9 @@ public class Cliente {
     private String complemento;
     private String bairro;
     private String cidade;
-    private String uf;
-
-    /**
-     * método que retorna o ID do Cliente
-     * colocas as informações do necessário sobre o método
-     * @return 
-     */
+    private String uf;   
+ 
+    //Getters e Setters
     public int getId() {
         return id;
     }
@@ -141,6 +139,8 @@ public class Cliente {
     public void setUf(String uf) {
         this.uf = uf;
     }
+    
+    
     
     
 }
