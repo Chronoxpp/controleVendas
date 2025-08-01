@@ -9,7 +9,7 @@ package model;
  *
  * @author Cleber Feitosa
  */
-public class Fornecedores extends  Cliente {
+public class Fornecedor extends  Cliente {
     
     //atributos
     private String cnpj;    

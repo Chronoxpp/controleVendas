@@ -14,23 +14,23 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import jdbc.Conexao;
-import model.Fornecedores;
-import model.Produtos;
+import model.Fornecedor;
+import model.Produto;
 
 /**
  *
- * @author Caio Duarte
+ * @author Cleber Feitosa
  */
-public class ProdutosDAO {
+public class ProdutoDAO {
 
     private Connection con;
 
-    public ProdutosDAO() {
+    public ProdutoDAO() {
        this.con = Conexao.conectar();
     }
 
-    //Metodo Cadastrar Produtos
-    public void cadastrar(Produtos obj) {
+    //Metodo Cadastrar Produto
+    public void cadastrar(Produto obj) {
         try {
 
             String sql = "insert into tb_produtos (descricao, preco,qtd_estoque,for_id) values (?,?,?,?)";
@@ -55,8 +55,8 @@ public class ProdutosDAO {
 
     }
 
-    //Metodo Alterar Produtos
-    public void alterar(Produtos obj) {
+    //Metodo Alterar Produto
+    public void alterar(Produto obj) {
         try {
 
             String sql = "update tb_produtos  set descricao=?, preco=?, qtd_estoque=?, for_id=?  where id=?";
@@ -83,7 +83,7 @@ public class ProdutosDAO {
 
     }
 
-    public void excluir(Produtos obj) {
+    public void excluir(Produto obj) {
         try {
 
             String sql = "delete from tb_produtos  where id=?";
@@ -105,12 +105,12 @@ public class ProdutosDAO {
 
     }
 
-    //Metodo listar Produtos
-    public List<Produtos> listarProdutos() {
+    //Metodo listar Produto
+    public List<Produto> listarProduto() {
         try {
 
             //1 passo criar a lista
-            List<Produtos> lista = new ArrayList<>();
+            List<Produto> lista = new ArrayList<>();
 
             //2 passo - criar o sql , organizar e executar.
             String sql = "select p.id, p.descricao, p.preco, p.qtd_estoque, f.nome from tb_produtos as p "
@@ -119,8 +119,8 @@ public class ProdutosDAO {
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                Produtos obj = new Produtos();
-                Fornecedores f = new Fornecedores();
+                Produto obj = new Produto();
+                Fornecedor f = new Fornecedor();
                 obj.setId(rs.getInt("p.id"));
                 obj.setDescricao(rs.getString("p.descricao"));
                 obj.setPreco(rs.getDouble("p.preco"));
@@ -143,12 +143,12 @@ public class ProdutosDAO {
 
     }
 
-    //Metodo listar Produtos por Nome
-    public List<Produtos> listarProdutosPorNome(String nome) {
+    //Metodo listar Produto por Nome
+    public List<Produto> listarProdutoPorNome(String nome) {
         try {
 
             //1 passo criar a lista
-            List<Produtos> lista = new ArrayList<>();
+            List<Produto> lista = new ArrayList<>();
 
             //2 passo - criar o sql , organizar e executar.
             String sql = "select p.id, p.descricao, p.preco, p.qtd_estoque, f.nome from tb_produtos as p "
@@ -159,8 +159,8 @@ public class ProdutosDAO {
 
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                Produtos obj = new Produtos();
-                Fornecedores f = new Fornecedores();
+                Produto obj = new Produto();
+                Fornecedor f = new Fornecedor();
                 obj.setId(rs.getInt("p.id"));
                 obj.setDescricao(rs.getString("p.descricao"));
                 obj.setPreco(rs.getDouble("p.preco"));
@@ -184,7 +184,7 @@ public class ProdutosDAO {
     }
 
     //metodo consultaProduto por Nome
-    public Produtos consultaPorNome(String nome) {
+    public Produto consultaPorNome(String nome) {
         try {
             //1 passo - criar o sql , organizar e executar.
 
@@ -195,8 +195,8 @@ public class ProdutosDAO {
             stmt.setString(1, nome);
 
             ResultSet rs = stmt.executeQuery();
-            Produtos obj = new Produtos();
-            Fornecedores f = new Fornecedores();
+            Produto obj = new Produto();
+            Fornecedor f = new Fornecedor();
 
             if (rs.next()) {
 
@@ -219,7 +219,7 @@ public class ProdutosDAO {
     }
 
     //metodo buscaProduto  por Codigo
-    public Produtos buscaPorCodigo(int id) {
+    public Produto buscaPorCodigo(int id) {
         try {
             //1 passo - criar o sql , organizar e executar.
 
@@ -229,7 +229,7 @@ public class ProdutosDAO {
             stmt.setInt(1, id);
 
             ResultSet rs = stmt.executeQuery();
-            Produtos obj = new Produtos();
+            Produto obj = new Produto();
 
             if (rs.next()) {
 

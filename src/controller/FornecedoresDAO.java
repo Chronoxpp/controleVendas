@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import jdbc.Conexao;
-import model.Fornecedores;
+import model.Fornecedor;
 
 /**
  *
@@ -29,7 +29,7 @@ public class FornecedoresDAO {
     }
 
     //Metodo cadastrarFornecedores
-    public void cadastrarFornecedores(Fornecedores obj) {
+    public void cadastrarFornecedores(Fornecedor obj) {
         try {
 
             //1 passo  - criar o comando sql
@@ -65,7 +65,7 @@ public class FornecedoresDAO {
     }
 
     //metodo excluir fornecedor
-    public void excluirFornecedor(Fornecedores obj) {
+    public void excluirFornecedor(Fornecedor obj) {
         try {
 
             //1 passo  - criar o comando sql
@@ -89,7 +89,7 @@ public class FornecedoresDAO {
     }
 
     //metodo alterarFornecedor
-    public void alterarFornecedor(Fornecedores obj) {
+    public void alterarFornecedor(Fornecedor obj) {
         try {
 
             //1 passo  - criar o comando sql
@@ -127,11 +127,11 @@ public class FornecedoresDAO {
     }
     
     //Metodo listarFornecedores
-     public List<Fornecedores> listarFornecedores() {
+     public List<Fornecedor> listarFornecedores() {
         try {
 
             //1 passo criar a lista
-            List<Fornecedores> lista = new ArrayList<>();
+            List<Fornecedor> lista = new ArrayList<>();
 
             //2 passo - criar o sql , organizar e executar.
             String sql = "select * from tb_fornecedores";
@@ -139,7 +139,7 @@ public class FornecedoresDAO {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                Fornecedores obj = new Fornecedores();
+                Fornecedor obj = new Fornecedor();
 
                 obj.setId(rs.getInt("id"));
                 obj.setNome(rs.getString("nome"));             
@@ -169,11 +169,11 @@ public class FornecedoresDAO {
     }
     
     //Metodo listarFornecedores por nome
-     public List<Fornecedores> listarFornecedoresPorNome(String nome) {
+     public List<Fornecedor> listarFornecedoresPorNome(String nome) {
         try {
 
             //1 passo criar a lista
-            List<Fornecedores> lista = new ArrayList<>();
+            List<Fornecedor> lista = new ArrayList<>();
 
             //2 passo - criar o sql , organizar e executar.
             String sql = "select * from tb_fornecedores where nome like ?";
@@ -182,7 +182,7 @@ public class FornecedoresDAO {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                Fornecedores obj = new Fornecedores();
+                Fornecedor obj = new Fornecedor();
 
                 obj.setId(rs.getInt("id"));
                 obj.setNome(rs.getString("nome"));             
@@ -212,7 +212,7 @@ public class FornecedoresDAO {
     }
      
      //metodo consultaFornecedoresPornome
-      public Fornecedores consultaPorNome(String nome) {
+      public Fornecedor consultaPorNome(String nome) {
         try {
             //1 passo - criar o sql , organizar e executar.
             String sql = "select * from tb_fornecedores where nome = ?";
@@ -220,7 +220,7 @@ public class FornecedoresDAO {
             stmt.setString(1, nome);
 
             ResultSet rs = stmt.executeQuery();
-           Fornecedores obj = new Fornecedores();
+           Fornecedor obj = new Fornecedor();
 
 
             if (rs.next()) {

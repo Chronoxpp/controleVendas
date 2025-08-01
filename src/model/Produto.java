@@ -9,7 +9,7 @@ package model;
  *
  * @author Cleber Feitosa
  */
-public class Produtos {
+public class Produto {
     
     //Atributos
     private int id;
@@ -17,7 +17,7 @@ public class Produtos {
     private double preco;
     private int qtd_estoque;
     
-    private Fornecedores fornecedor; 
+    private Fornecedor fornecedor; 
     
     //Getters e setters
     public int getId() {
@@ -52,11 +52,11 @@ public class Produtos {
         this.qtd_estoque = qtd_estoque;
     }
 
-    public Fornecedores getFornecedor() {
+    public Fornecedor getFornecedor() {
         return fornecedor;
     }
 
-    public void setFornecedor(Fornecedores fornecedor) {
+    public void setFornecedor(Fornecedor fornecedor) {
         this.fornecedor = fornecedor;
     }
     

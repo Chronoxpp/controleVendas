@@ -3,8 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/clebe/Documents/IFMT/2025-1/TADS/controleVendas/ControleVendas/src/model/Cliente.java</file>
-            <file>file:/C:/Users/clebe/Documents/IFMT/2025-1/TADS/controleVendas/ControleVendas/src/view/Frmclientes.java</file>
+            <file>file:/C:/Users/clebe/Documents/IFMT/2025-1/TADS/controleVendas/src/controller/FuncionarioDAO.java</file>
+            <file>file:/C:/Users/clebe/Documents/IFMT/2025-1/TADS/controleVendas/src/view/Frmmenu.java</file>
+            <file>file:/C:/Users/clebe/Documents/IFMT/2025-1/TADS/controleVendas/src/view/FrmLogin.java</file>
         </group>
     </open-files>
 </project-private>
