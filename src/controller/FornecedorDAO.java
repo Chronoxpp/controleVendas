@@ -20,16 +20,16 @@ import model.Fornecedor;
  *
  * @author Cleber Feitosa
  */
-public class FornecedoresDAO {
+public class FornecedorDAO {
 
     private Connection con;
 
-    public FornecedoresDAO() {
+    public FornecedorDAO() {
        this.con = Conexao.conectar();
     }
 
-    //Metodo cadastrarFornecedores
-    public void cadastrarFornecedores(Fornecedor obj) {
+    //Metodo cadastrarFornecedor
+    public void cadastrarFornecedor(Fornecedor obj) {
         try {
 
             //1 passo  - criar o comando sql
@@ -126,8 +126,8 @@ public class FornecedoresDAO {
         }
     }
     
-    //Metodo listarFornecedores
-     public List<Fornecedor> listarFornecedores() {
+    //Metodo listarFornecedor
+     public List<Fornecedor> listarFornecedor() {
         try {
 
             //1 passo criar a lista
@@ -168,8 +168,8 @@ public class FornecedoresDAO {
 
     }
     
-    //Metodo listarFornecedores por nome
-     public List<Fornecedor> listarFornecedoresPorNome(String nome) {
+    //Metodo listarFornecedor por nome
+     public List<Fornecedor> listarFornecedorPorNome(String nome) {
         try {
 
             //1 passo criar a lista
@@ -211,7 +211,7 @@ public class FornecedoresDAO {
 
     }
      
-     //metodo consultaFornecedoresPornome
+     //metodo consultaFornecedorPornome
       public Fornecedor consultaPorNome(String nome) {
         try {
             //1 passo - criar o sql , organizar e executar.

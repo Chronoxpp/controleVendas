@@ -37,7 +37,7 @@ public class FuncionarioDAO {
 
             //1 passo  - criar o comando sql
             String sql = "insert into tb_funcionarios (nome,rg,cpf,email,senha,cargo,nivel_acesso,telefone,celular,cep,endereco,numero,complemento,bairro,cidade,estado) "
-                    + " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + " values (?,?,?,?,md5(?),?,?,?,?,?,?,?,?,?,?,?)";
 
             //2 passo - conectar o banco de dados e organizar o comando sql
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -76,7 +76,7 @@ public class FuncionarioDAO {
         try {
 
             //1 passo  - criar o comando sql
-            String sql = "update tb_funcionarios  set  nome=?, rg=?, cpf=?, email=?, senha=?, cargo=?, nivel_acesso =?, telefone=?, celular=?, cep=?, "
+            String sql = "update tb_funcionarios  set  nome=?, rg=?, cpf=?, email=?, senha=md5(?), cargo=?, nivel_acesso =?, telefone=?, celular=?, cep=?, "
                     + "endereco=?, numero=?,complemento=?,bairro=?,cidade=?, estado=?  where id =?";
 
             //2 passo - conectar o banco de dados e organizar o comando sql
@@ -283,7 +283,7 @@ public class FuncionarioDAO {
         try {
 
             //1 passo - SQL
-            String sql = "select * from tb_funcionarios where email = ? and senha = ?";
+            String sql = "select * from tb_funcionarios where email = ? and senha = md5(?)";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, email);
             stmt.setString(2, senha);
@@ -313,6 +313,7 @@ public class FuncionarioDAO {
                     //Desabilitar os menus
                     tela.menu_posicao.setEnabled(false);
                     tela.menu_controlevendas.setVisible(false);
+                    tela.jMnFuncionario.setVisible(false);
                    
                     tela.setVisible(true);
 

@@ -46,7 +46,7 @@ public class Frmmenu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jMnFuncionario = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -107,7 +107,7 @@ public class Frmmenu extends javax.swing.JFrame {
         painel_desktopLayout.setVerticalGroup(
             painel_desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painel_desktopLayout.createSequentialGroup()
-                .addGap(0, 399, Short.MAX_VALUE)
+                .addGap(0, 396, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -126,8 +126,8 @@ public class Frmmenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/funcionarios.png"))); // NOI18N
-        jMenu2.setText("Funcionários");
+        jMnFuncionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/funcionarios.png"))); // NOI18N
+        jMnFuncionario.setText("Funcionários");
 
         jMenuItem2.setText("Controle de funcionários");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -135,9 +135,9 @@ public class Frmmenu extends javax.swing.JFrame {
                 jMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem2);
+        jMnFuncionario.add(jMenuItem2);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMnFuncionario);
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/fornecedores.png"))); // NOI18N
         jMenu3.setText("Fornecedores");
@@ -370,9 +370,8 @@ public class Frmmenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
+    public javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
@@ -384,6 +383,7 @@ public class Frmmenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    public javax.swing.JMenu jMnFuncionario;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblusuario;
     public javax.swing.JMenuItem menu_controlevendas;

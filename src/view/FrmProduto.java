@@ -5,7 +5,7 @@
  */
 package view;
 
-import controller.FornecedoresDAO;
+import controller.FornecedorDAO;
 import controller.ProdutoDAO;
 
 import java.awt.Color;
@@ -394,7 +394,7 @@ public class FrmProduto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnbuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscaActionPerformed
-        // botao buscar cliente por nome     
+        // botao buscar fornecedor por nome     
 
         String nome = txtdescricao.getText();
         Produto obj = new Produto();
@@ -413,7 +413,7 @@ public class FrmProduto extends javax.swing.JFrame {
             txtqtdestoque.setText(String.valueOf(obj.getQtd_estoque()));
          
             Fornecedor f = new Fornecedor();
-            FornecedoresDAO fdao = new FornecedoresDAO();
+            FornecedorDAO fdao = new FornecedorDAO();
 
             f = fdao.consultaPorNome(obj.getFornecedor().getNome());
 
@@ -490,7 +490,7 @@ public class FrmProduto extends javax.swing.JFrame {
         txtqtdestoque.setText(tabelaProduto.getValueAt(tabelaProduto.getSelectedRow(), 3).toString());
 
         Fornecedor f = new Fornecedor();
-        FornecedoresDAO dao = new FornecedoresDAO();
+        FornecedorDAO dao = new FornecedorDAO();
 
         f = dao.consultaPorNome(tabelaProduto.getValueAt(tabelaProduto.getSelectedRow(), 4).toString());
 
@@ -564,8 +564,8 @@ public class FrmProduto extends javax.swing.JFrame {
 
     private void cbfornecedorAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbfornecedorAncestorAdded
         // Carregando combobox fornecedores
-        FornecedoresDAO dao = new FornecedoresDAO();
-        List<Fornecedor> listadefornecedores = dao.listarFornecedores();
+        FornecedorDAO dao = new FornecedorDAO();
+        List<Fornecedor> listadefornecedores = dao.listarFornecedor();
         cbfornecedor.removeAll();
 
         for (Fornecedor f : listadefornecedores) {
@@ -578,8 +578,8 @@ public class FrmProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_cbfornecedorActionPerformed
 
     private void cbfornecedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbfornecedorMouseClicked
-        FornecedoresDAO dao = new FornecedoresDAO();
-        List<Fornecedor> listadefornecedores = dao.listarFornecedores();
+        FornecedorDAO dao = new FornecedorDAO();
+        List<Fornecedor> listadefornecedores = dao.listarFornecedor();
         cbfornecedor.removeAllItems();
 
         for (Fornecedor f : listadefornecedores) {
