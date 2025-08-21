@@ -13,7 +13,7 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import model.Cliente;
+
 import model.Fornecedor;
 import utilitarios.Utilitarios;
 
@@ -592,8 +592,8 @@ public class FrmFornecedor extends javax.swing.JFrame {
 
         //Programacao do keypress
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            Cliente obj = new Cliente();
-            ClienteDAO dao = new ClienteDAO();
+            Fornecedor obj = new Fornecedor();
+            FornecedorDAO dao = new FornecedorDAO();
             obj = dao.buscaCep(txtcep.getText());
 
             txtend.setText(obj.getEndereco());

@@ -9,6 +9,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import jdbc.Conexao;
 import model.Cliente;
+import model.WebServiceCep;
 
 /**
  *
@@ -281,7 +282,25 @@ public class ClienteDAO {
         }
     }
 
-    public Cliente buscaCep(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+// busca CEP
+    public Cliente buscaCep(String cep) {
+
+        WebServiceCep webServiceCep = WebServiceCep.searchCep(cep);
+
+        Cliente obj = new Cliente();
+
+        if (webServiceCep.wasSuccessful()) {
+            obj.setEndereco(webServiceCep.getLogradouroFull());
+            obj.setCidade(webServiceCep.getCidade());
+            obj.setBairro(webServiceCep.getBairro());
+            obj.setUf(webServiceCep.getUf());
+            return obj;
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro numero: " + webServiceCep.getResulCode());
+            JOptionPane.showMessageDialog(null, "Descrição do erro: " + webServiceCep.getResultText());
+            return null;
+        }
+
     }
+
 }

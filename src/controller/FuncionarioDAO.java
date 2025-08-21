@@ -15,6 +15,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import jdbc.Conexao;
 import model.Funcionario;
+import model.WebServiceCep;
 import view.FrmLogin;
 import view.Frmmenu;
 
@@ -328,6 +329,28 @@ public class FuncionarioDAO {
 
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Erro : " + erro);
+        }
+
+    }
+    
+    public Funcionario buscaCep(String cep) {
+       
+        WebServiceCep webServiceCep = WebServiceCep.searchCep(cep);
+       
+
+        Funcionario obj = new Funcionario();
+
+        if (webServiceCep.wasSuccessful()) {
+            obj.setEndereco(webServiceCep.getLogradouroFull());
+            obj.setCidade(webServiceCep.getCidade());
+            obj.setBairro(webServiceCep.getBairro());
+            obj.setUf(webServiceCep.getUf());
+            
+            return obj;
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro numero: " + webServiceCep.getResulCode());
+            JOptionPane.showMessageDialog(null, "Descrição do erro: " + webServiceCep.getResultText());
+            return null;
         }
 
     }

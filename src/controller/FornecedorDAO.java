@@ -15,6 +15,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import jdbc.Conexao;
 import model.Fornecedor;
+import model.WebServiceCep;
 
 /**
  *
@@ -246,6 +247,28 @@ public class FornecedorDAO {
             JOptionPane.showMessageDialog(null, "Fornecedor não encontrado!");
             return null;
         }
+    }
+      
+      public Fornecedor buscaCep(String cep) {
+       
+        WebServiceCep webServiceCep = WebServiceCep.searchCep(cep);
+       
+
+        Fornecedor obj = new Fornecedor();
+
+        if (webServiceCep.wasSuccessful()) {
+            obj.setEndereco(webServiceCep.getLogradouroFull());
+            obj.setCidade(webServiceCep.getCidade());
+            obj.setBairro(webServiceCep.getBairro());
+            obj.setUf(webServiceCep.getUf());
+            
+            return obj;
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro numero: " + webServiceCep.getResulCode());
+            JOptionPane.showMessageDialog(null, "Descrição do erro: " + webServiceCep.getResultText());
+            return null;
+        }
+
     }
 
      

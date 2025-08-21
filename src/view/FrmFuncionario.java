@@ -262,7 +262,7 @@ public class FrmFuncionario extends javax.swing.JFrame {
         jLabel13.setText("Nº:");
 
         try {
-            jTxtCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+            jTxtCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -681,18 +681,18 @@ public class FrmFuncionario extends javax.swing.JFrame {
 
     private void jTxtCepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtCepKeyPressed
 
-//        //Programacao do keypress
-//        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-//            Cliente obj = new Cliente();
-//            ClienteDAO dao = new ClienteDAO();
-//            //obj = dao.buscaCep(jTxtCep.getText());
-//
-//            jTxtEndereco.setText(obj.getEndereco());
-//            jTxtBairro.setText(obj.getBairro());
-//            jTxtCidade.setText(obj.getCidade());
-//            jCbxUF.setSelectedItem(obj.getUf());
-//
-//        }
+        //Programacao do keypress
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            Funcionario obj = new Funcionario();
+            FuncionarioDAO dao = new FuncionarioDAO();
+            //obj = dao.buscaCep(jTxtCep.getText());
+
+            jTxtEndereco.setText(obj.getEndereco());
+            jTxtBairro.setText(obj.getBairro());
+            jTxtCidade.setText(obj.getCidade());
+            jCbxUF.setSelectedItem(obj.getUf());
+
+        }
 
     }//GEN-LAST:event_jTxtCepKeyPressed
 
