@@ -5,17 +5,17 @@
 package controller;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.JOptionPane;
 import jdbc.Conexao;
 import model.Cliente;
 import model.Venda;
-import java.sql.PreparedStatement;
+
 
 
 public class VendaDAO {
@@ -110,11 +110,13 @@ public class VendaDAO {
                 
                 lista.add(obj);
             }
-            catch(SQLException erro)
-            {
-                JOptionPane.showMessageDialog(null, "Erro: " + erro);
-                return null;
-            }
+            
+            return lista;
+        }
+        catch(SQLException erro)
+        {
+            JOptionPane.showMessageDialog(null, "Erro: " + erro);
+            return null;
         }
     }
 }
