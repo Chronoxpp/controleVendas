@@ -6,11 +6,13 @@
 package view;
 
 
+import controller.VendaDAO;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import model.Venda;
 
 /**
  *
@@ -193,8 +195,32 @@ public class FrmHistorico extends javax.swing.JFrame {
     }//GEN-LAST:event_txtdatafimKeyPressed
 
     private void btnpesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarActionPerformed
-        
-
+        //Botão buscar venda por período
+        try {
+            //Receber as datas
+            DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            
+            LocalDate data_inicio = LocalDate.parse(txtdatainicio.getText(), formato);
+            LocalDate data_fim = LocalDate.parse(txtdatafim.getText(), formato);
+            
+            VendaDAO dao = new VendaDAO();
+            List<Venda> lista = dao.listarVendasPorPeriodo(data_inicio, data_fim);
+            DefaultTableModel dados = (DefaultTableModel) tabelaHistorico.getModel();
+            dados.setNumRows(0);
+            
+            for (Venda venda : lista) {
+                dados.addRow(new Object[]{
+                    venda.getId(), 
+                    venda.getData_venda(),
+                    venda.getCliente().getNome(),
+                    venda.getTotal_venda(),
+                    venda.getObs()
+                    
+                });
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Digite das datas como intervalo!");
+        }
     }//GEN-LAST:event_btnpesquisarActionPerformed
 
     private void tabelaHistoricoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaHistoricoMouseClicked

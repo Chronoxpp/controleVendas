@@ -27,7 +27,6 @@ public class FrmCliente extends javax.swing.JFrame {
 
     //Metodo Listar na tabela
     public void listar() {
-
         ClienteDAO dao = new ClienteDAO();
         List<Cliente> lista = dao.listarClientes();
         DefaultTableModel dados = (DefaultTableModel) jTblClientes.getModel();
@@ -610,7 +609,6 @@ public class FrmCliente extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Cliente não encontrado!");
         }
-
     }//GEN-LAST:event_jBtnBuscarActionPerformed
 
     private void jTxtCepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtCepKeyPressed
@@ -627,7 +625,6 @@ public class FrmCliente extends javax.swing.JFrame {
             jCbxUF.setSelectedItem(obj.getUf());       
 
         }
-
     }//GEN-LAST:event_jTxtCepKeyPressed
 
     private void btnpesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarActionPerformed
@@ -718,7 +715,6 @@ public class FrmCliente extends javax.swing.JFrame {
 
     private void jBtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEditarActionPerformed
         // botao editar
-
         Cliente obj = new Cliente();
 
         obj.setNome(jTxtNome.getText());
@@ -741,13 +737,10 @@ public class FrmCliente extends javax.swing.JFrame {
 
         dao.alterarCliente(obj);
         new utilitarios.Utilitarios().LimpaTela(jPanelDados);
-
-
     }//GEN-LAST:event_jBtnEditarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // botao excluir
-
         Cliente obj = new Cliente();
 
         obj.setId(Integer.parseInt(jTxtCodigo.getText()));
@@ -756,7 +749,6 @@ public class FrmCliente extends javax.swing.JFrame {
 
         dao.excluirCliente(obj);
         new utilitarios.Utilitarios().LimpaTela(jPanelDados);
-
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void jTxtPesquisarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtPesquisarKeyPressed

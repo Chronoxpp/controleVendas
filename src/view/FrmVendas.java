@@ -446,8 +446,13 @@ public class FrmVendas extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void btnpagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpagamentoActionPerformed
-       
-
+        //Botão pagamento
+        FrmPagamentos telap = new FrmPagamentos();
+        telap.txttotal.setText(String.valueOf(total));
+        telap.cliente = obj;
+        telap.carrinho = carrinho;
+        telap.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnpagamentoActionPerformed
 
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
@@ -543,7 +548,6 @@ public class FrmVendas extends javax.swing.JFrame {
             txtdescricao.setText(produto.getDescricao());
             txtpreco.setText(String.valueOf(produto.getPreco()));
         }
-
     }//GEN-LAST:event_txtcodigoKeyPressed
 
     /**

@@ -27,6 +27,4 @@ public class Fornecedor extends Cliente {
     public String toString(){
         return this.getNome();        
     }
-    
-    
 }

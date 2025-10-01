@@ -167,7 +167,6 @@ public class ClienteDAO {
     //Metodo buscarclientePorNome - retorna uma lista
     public List<Cliente> buscaClientePorNome(String nome) {
         try {
-
             //1 passo criar a lista
             List<Cliente> lista = new ArrayList<>();
 
@@ -294,13 +293,13 @@ public class ClienteDAO {
             obj.setCidade(webServiceCep.getCidade());
             obj.setBairro(webServiceCep.getBairro());
             obj.setUf(webServiceCep.getUf());
+            
             return obj;
         } else {
             JOptionPane.showMessageDialog(null, "Erro numero: " + webServiceCep.getResulCode());
             JOptionPane.showMessageDialog(null, "Descrição do erro: " + webServiceCep.getResultText());
+            
             return null;
         }
-
     }
-
 }

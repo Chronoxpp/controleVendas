@@ -6,10 +6,17 @@
 package view;
 
 
+import controller.ItemVendaDAO;
+import controller.ProdutoDAO;
+import controller.VendaDAO;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import model.Cliente;
+import model.ItemVenda;
+import model.Produto;
+import model.Venda;
 
 /**
  *
@@ -17,7 +24,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FrmPagamentos extends javax.swing.JFrame {
 
-  
+    Cliente cliente;
+    
+    DefaultTableModel carrinho;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -194,9 +203,73 @@ public class FrmPagamentos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnfinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfinalizarActionPerformed
+        Double pcartao, pcheque, pdinheiro, totalpago, totalvenda, troco;
 
+        pcartao = Double.parseDouble(txtcartao.getText());
+        pcheque = Double.parseDouble(txtcheque.getText());
+        pdinheiro = Double.parseDouble(txtdinheiro.getText());
+
+        totalvenda = Double.parseDouble(txttotal.getText());
+
+        //Calcularo total e o troco
+        totalpago = pcartao + pcheque + pdinheiro;
+
+        troco = totalpago - totalvenda;
+
+        txttroco.setText(String.valueOf(troco));
        
-
+        Venda objvenda = new Venda();
+        
+        //Dados do cliente (cliente_id)
+        objvenda.setCliente(cliente);
+        
+        //Pega a da venda
+        Date agora = new Date();
+        SimpleDateFormat dataUSA = new SimpleDateFormat("yyyy-MM-dd");
+        String dataformatada = dataUSA.format(agora);
+        
+        objvenda.setData_venda(dataformatada);
+        
+        //Total da venda e obs
+        objvenda.setTotal_venda(totalvenda);
+        objvenda.setObs(txtobs.getText());
+        
+        VendaDAO daovenda = new VendaDAO();
+        daovenda.cadastrarVenda(objvenda);
+        
+        //Retorna o id da última venda realizada
+        objvenda.setId(daovenda.retornaUltimaVenda());
+        
+        //System.err.println("Id da última venda: "+ objvenda.getId());
+        
+        //Cadastrando os produtos na tabela itensvendas.
+        for (int i = 0; i < carrinho.getRowCount(); i++) {
+            int qtd_estoque, qtd_comprada, qtd_atualizada;
+            
+            Produto objp = new Produto();
+            ProdutoDAO dao_produto = new ProdutoDAO();
+            
+            ItemVenda item = new ItemVenda();
+            item.setVenda(objvenda);
+           
+            objp.setId(Integer.parseInt(carrinho.getValueAt(i, 0).toString()));
+            item.setProduto(objp);
+            item.setQtd(Integer.parseInt(carrinho.getValueAt(i, 2).toString()));
+            item.setSubtotal(Double.parseDouble(carrinho.getValueAt(i, 4).toString()));
+            
+            //Baixa no estoque
+            
+            qtd_estoque = dao_produto.retornaEstoqueAtual(objp.getId());
+            qtd_comprada = Integer.parseInt(carrinho.getValueAt(i, 2).toString());
+            qtd_atualizada = qtd_estoque - qtd_comprada;
+            
+            dao_produto.baixaEstoque(objp.getId(), qtd_atualizada);
+            
+            ItemVendaDAO itemDAO = new ItemVendaDAO();
+            itemDAO.cadastraItem(item);
+        }
+        
+        JOptionPane.showMessageDialog(null,"Venda cadastrada com sucesso!!!");
     }//GEN-LAST:event_btnfinalizarActionPerformed
 
     /**
