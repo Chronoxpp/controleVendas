@@ -6,6 +6,7 @@
 package view;
 
 
+import controller.VendaDAO;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
@@ -145,9 +146,25 @@ public class FrmTotalVenda extends javax.swing.JFrame {
     }//GEN-LAST:event_txtdataKeyPressed
 
     private void btnconsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconsultarActionPerformed
-       
-       
-         
+       // botao calcular total de venda por data
+        try {
+            
+            //Receber a data
+            DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate data_venda = LocalDate.parse(txtdata.getText(), formato);
+            
+            double total_venda;
+            
+            VendaDAO dao = new VendaDAO();
+            total_venda = dao.retornaTotalVendaPorData(data_venda);
+            
+            txtotalvenda.setText(String.valueOf(total_venda));
+            
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null, "Informe uma data corretamente." + e);
+                   
+        }
     }//GEN-LAST:event_btnconsultarActionPerformed
 
     private void txtotalvendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtotalvendaActionPerformed

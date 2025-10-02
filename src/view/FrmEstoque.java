@@ -6,11 +6,10 @@
 package view;
 
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import controller.ProdutoDAO;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import model.Produto;
 
 /**
  *
@@ -260,9 +259,30 @@ public class FrmEstoque extends javax.swing.JFrame {
     }//GEN-LAST:event_btnaddActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-       
+        listar();
     }//GEN-LAST:event_formWindowActivated
+    //Metodo Listar na tabela
+    public void listar() {
 
+        ProdutoDAO dao = new ProdutoDAO();
+        List<Produto> lista = dao.listarProduto();
+        DefaultTableModel dados = (DefaultTableModel) tabelaProdutos.getModel();
+        dados.setNumRows(0);
+
+        for (Produto c : lista) {
+            dados.addRow(new Object[]{
+                c.getId(),
+                c.getDescricao(),
+                c.getPreco(),
+                c.getQtd_estoque(),
+                c.getFornecedor().getNome()
+
+            });
+
+        }
+
+    }
+    
     /**
      * @param args the command line arguments
      */
