@@ -765,6 +765,13 @@ public class FrmFuncionario extends javax.swing.JFrame {
 
     private void jBtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSalvarActionPerformed
         // boto salvar
+        
+        if(! validarSenhas())
+        {
+            JOptionPane.showMessageDialog(null, "As senhas estão diferentes ou vazias. Digite as senhas novamente!");
+            return;
+        }
+        
         Funcionario obj = new Funcionario();
 
         obj.setNome(jTxtNome.getText());
@@ -801,6 +808,16 @@ public class FrmFuncionario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formWindowActivated
 
+    private boolean validarSenhas()
+    {
+        if(jTxtSenha.getText().length() > 0 && (jTxtSenha.getText().equals(jTxtConfirmaSenha.getText())))
+        {
+            return true;
+        }
+        
+        return false;
+    }
+    
     private void jTblFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTblFuncionarioMouseClicked
         //Pega os dados
         jTabbedPane1.setSelectedIndex(0);
@@ -830,6 +847,12 @@ public class FrmFuncionario extends javax.swing.JFrame {
 
     private void jBtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEditarActionPerformed
         // botao editar
+        if(! (chkAlteraSenha.isSelected() && validarSenhas()))
+        {
+            JOptionPane.showMessageDialog(null, "As senhas estão diferentes ou vazias. Digite as senhas novamente!");
+            return;
+        }
+        
         Funcionario obj = new Funcionario();
 
         obj.setNome(jTxtNome.getText());
@@ -855,10 +878,6 @@ public class FrmFuncionario extends javax.swing.JFrame {
         FuncionarioDAO dao = new FuncionarioDAO();
 
         dao.alterarFuncionario(obj);
-
-        new Utilitarios().LimpaTela(painel_dados);
-
-
     }//GEN-LAST:event_jBtnEditarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
