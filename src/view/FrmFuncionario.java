@@ -299,6 +299,7 @@ public class FrmFuncionario extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel19.setText("Nível de Acesso:");
 
+        lblConfirmaSenha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblConfirmaSenha.setText("Confirme a nova senha:");
 
         jTxtConfirmaSenha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -588,7 +589,7 @@ public class FrmFuncionario extends javax.swing.JFrame {
                         .addComponent(jTxtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jBtnPesquisar)))
                 .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
                 .addGap(35, 35, 35))
         );
 
@@ -642,7 +643,7 @@ public class FrmFuncionario extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                     .addComponent(jBtnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBtnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)

@@ -25,8 +25,17 @@ import model.Venda;
 public class FrmPagamentos extends javax.swing.JFrame {
 
     Cliente cliente;
-    
     DefaultTableModel carrinho;
+    
+    public FrmPagamentos()
+    {
+        initComponents();
+        txtcartao.setText("0");
+        txtcheque.setText("0");
+        txtdinheiro.setText("0");
+        txttroco.setText("0");
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

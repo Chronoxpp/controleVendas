@@ -306,8 +306,8 @@ public class Frmmenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-//          FrmVendas tela = new FrmVendas();
-//        tela.setVisible(true);
+        FrmVendas tela = new FrmVendas();
+        tela.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void menu_posicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_posicaoActionPerformed
@@ -316,13 +316,13 @@ public class Frmmenu extends javax.swing.JFrame {
     }//GEN-LAST:event_menu_posicaoActionPerformed
 
     private void menu_controlevendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_controlevendasActionPerformed
-//         FrmHistorico tela = new FrmHistorico();
-//        tela.setVisible(true);
+        FrmHistorico tela = new FrmHistorico();
+        tela.setVisible(true);
     }//GEN-LAST:event_menu_controlevendasActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-//           FrmEstoque tela = new FrmEstoque();
-//        tela.setVisible(true);
+        FrmEstoque tela = new FrmEstoque();
+        tela.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**

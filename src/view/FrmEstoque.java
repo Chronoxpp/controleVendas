@@ -8,6 +8,7 @@ package view;
 
 import controller.ProdutoDAO;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Produto;
 
@@ -16,7 +17,7 @@ import model.Produto;
  * @author Cleber Feitosa
  */
 public class FrmEstoque extends javax.swing.JFrame {
-
+    int idproduto;
     
     public FrmEstoque() {
         initComponents();
@@ -237,8 +238,25 @@ public class FrmEstoque extends javax.swing.JFrame {
     }//GEN-LAST:event_txtpesquisaKeyPressed
 
     private void btnpesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisarActionPerformed
-        
+        // Botao pesquisar
+        String nome = "%" + txtpesquisa.getText() + "%";
 
+        ProdutoDAO dao = new ProdutoDAO();
+        List<Produto> lista = dao.listarProdutoPorNome(nome);
+
+        DefaultTableModel dados = (DefaultTableModel) tabelaProdutos.getModel();
+        dados.setNumRows(0);
+
+        for (Produto c : lista) {
+            dados.addRow(new Object[]{
+                c.getId(),
+                c.getDescricao(),
+                c.getPreco(),
+                c.getQtd_estoque(),
+                c.getFornecedor().getNome()
+            });
+
+        } 
     }//GEN-LAST:event_btnpesquisarActionPerformed
 
     private void txtestoqueKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtestoqueKeyPressed
@@ -250,12 +268,32 @@ public class FrmEstoque extends javax.swing.JFrame {
     }//GEN-LAST:event_txtqtdKeyPressed
 
     private void tabelaProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaProdutosMouseClicked
-       
-
+    idproduto = Integer.parseInt(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 0).toString());
+    txtestoque.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 3).toString());
+    txtpesquisa.setText(tabelaProdutos.getValueAt(tabelaProdutos.getSelectedRow(), 1).toString());
     }//GEN-LAST:event_tabelaProdutosMouseClicked
 
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
-        
+        try 
+        {
+            int qtd_estoque, qtd, qtd_nova;
+
+            qtd_estoque = Integer.parseInt(txtestoque.getText());
+
+            qtd = Integer.parseInt(txtqtd.getText());
+
+            qtd_nova = qtd_estoque + qtd;
+
+            ProdutoDAO dao = new ProdutoDAO();
+
+            dao.adicionarEstoque(idproduto, qtd_nova);
+
+            JOptionPane.showMessageDialog(null, "Estoque do Produto Atualizado");
+        } 
+        catch (Exception e) 
+        {
+            JOptionPane.showMessageDialog(null, "Selecione o produto ou informe a nova qtd." + e);
+        }        
     }//GEN-LAST:event_btnaddActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
