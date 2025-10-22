@@ -108,12 +108,15 @@ public class FrmFuncionario extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jCbxUF = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
+        lblSenha = new javax.swing.JLabel();
         jTxtSenha = new javax.swing.JPasswordField();
         jLabel18 = new javax.swing.JLabel();
         jTxtCargo = new javax.swing.JTextField();
         jCBXNivelACesso = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
+        lblConfirmaSenha = new javax.swing.JLabel();
+        jTxtConfirmaSenha = new javax.swing.JPasswordField();
+        chkAlteraSenha = new javax.swing.JCheckBox();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTblFuncionario = new javax.swing.JTable();
@@ -281,8 +284,8 @@ public class FrmFuncionario extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel15.setText("Cidade:");
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel17.setText("Senha:");
+        lblSenha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblSenha.setText("Nova senha:");
 
         jTxtSenha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -296,6 +299,17 @@ public class FrmFuncionario extends javax.swing.JFrame {
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel19.setText("Nível de Acesso:");
+
+        lblConfirmaSenha.setText("Confirme a nova senha:");
+
+        chkAlteraSenha.setSelected(true);
+        chkAlteraSenha.setText("Alterar senha");
+        chkAlteraSenha.setEnabled(false);
+        chkAlteraSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkAlteraSenhaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout painel_dadosLayout = new javax.swing.GroupLayout(painel_dados);
         painel_dados.setLayout(painel_dadosLayout);
@@ -349,7 +363,7 @@ public class FrmFuncionario extends javax.swing.JFrame {
                         .addComponent(jTxtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(112, 112, 112))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painel_dadosLayout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(35, Short.MAX_VALUE)
                 .addGroup(painel_dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painel_dadosLayout.createSequentialGroup()
                         .addComponent(jTxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -360,14 +374,16 @@ public class FrmFuncionario extends javax.swing.JFrame {
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTxtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(painel_dadosLayout.createSequentialGroup()
-                                .addGroup(painel_dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(painel_dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblSenha)
+                                .addGroup(painel_dadosLayout.createSequentialGroup()
                                     .addComponent(jLabel6)
-                                    .addComponent(jLabel17))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(painel_dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTxtRg, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                                    .addComponent(jTxtSenha))))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jTxtRg, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE))
+                                .addComponent(lblConfirmaSenha)
+                                .addComponent(jTxtConfirmaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTxtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(chkAlteraSenha)))
                         .addGroup(painel_dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(painel_dadosLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
@@ -475,21 +491,31 @@ public class FrmFuncionario extends javax.swing.JFrame {
                             .addGroup(painel_dadosLayout.createSequentialGroup()
                                 .addGap(5, 5, 5)
                                 .addComponent(jLabel5)))
-                        .addGap(18, 18, 18)
                         .addGroup(painel_dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCBXNivelACesso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(painel_dadosLayout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addComponent(jLabel19))
-                            .addGroup(painel_dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel17)
-                                .addComponent(jTxtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(painel_dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCBXNivelACesso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(painel_dadosLayout.createSequentialGroup()
+                                        .addGap(5, 5, 5)
+                                        .addComponent(jLabel19))))
+                            .addGroup(painel_dadosLayout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(chkAlteraSenha))))
                     .addGroup(painel_dadosLayout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addGroup(painel_dadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel18)
                             .addComponent(jTxtCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(lblSenha)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTxtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblConfirmaSenha)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTxtConfirmaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         painel_dadosLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jTxtEmail, jTxtNome});
@@ -561,7 +587,7 @@ public class FrmFuncionario extends javax.swing.JFrame {
                         .addComponent(jTxtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jBtnPesquisar)))
                 .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
                 .addGap(35, 35, 35))
         );
 
@@ -670,9 +696,15 @@ public class FrmFuncionario extends javax.swing.JFrame {
             jTxtBairro.setText(obj.getBairro());
             jTxtCidade.setText(obj.getCidade());
             jCbxUF.setSelectedItem(obj.getUf());
+            
+            jTxtSenha.setText("");
+            jTxtConfirmaSenha.setText("");
+            chkAlteraSenha.setEnabled(true);
+            ativarCamposAlteracaoSenha(false);
         } else {
             JOptionPane.showMessageDialog(null, "Funcionário  não encontrado!");
         }
+
 
     }//GEN-LAST:event_jBtnBuscaActionPerformed
 
@@ -789,6 +821,11 @@ public class FrmFuncionario extends javax.swing.JFrame {
         jTxtBairro.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 13).toString());
         jTxtCidade.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 14).toString());
         jCbxUF.setSelectedItem(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 15).toString());
+        
+        jTxtSenha.setText("");
+        jTxtConfirmaSenha.setText("");
+        chkAlteraSenha.setEnabled(true);
+        ativarCamposAlteracaoSenha(false);
     }//GEN-LAST:event_jTblFuncionarioMouseClicked
 
     private void jBtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEditarActionPerformed
@@ -837,7 +874,14 @@ public class FrmFuncionario extends javax.swing.JFrame {
         new Utilitarios().LimpaTela(painel_dados);
 
     }//GEN-LAST:event_jBtnExcluirActionPerformed
-
+    
+    private void ativarCamposAlteracaoSenha(boolean ativar)
+    {
+        jTxtSenha.setEditable(ativar);
+        jTxtConfirmaSenha.setEditable(ativar);
+        chkAlteraSenha.setSelected(ativar);
+    }
+    
     private void jTxtPesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtPesquisaKeyPressed
         String nome = "%" + jTxtPesquisa.getText() + "%";
 
@@ -869,12 +913,23 @@ public class FrmFuncionario extends javax.swing.JFrame {
 
         }
 
+        
     }//GEN-LAST:event_jTxtPesquisaKeyPressed
 
     private void jBtnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnNovoActionPerformed
         new Utilitarios().LimpaTela(painel_dados);
-
+        ativarCamposAlteracaoSenha(true);
+        chkAlteraSenha.setEnabled(false);
     }//GEN-LAST:event_jBtnNovoActionPerformed
+
+    private boolean verificarAtivacaoCamposAlteracaoSenha()
+    {
+        return (jTxtCodigo.getText().length() > 0 && chkAlteraSenha.isSelected());
+    }
+    
+    private void chkAlteraSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAlteraSenhaActionPerformed
+        ativarCamposAlteracaoSenha(verificarAtivacaoCamposAlteracaoSenha());
+    }//GEN-LAST:event_chkAlteraSenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -915,6 +970,7 @@ public class FrmFuncionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox chkAlteraSenha;
     private javax.swing.JButton jBtnBusca;
     private javax.swing.JButton jBtnEditar;
     private javax.swing.JButton jBtnExcluir;
@@ -931,7 +987,6 @@ public class FrmFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -954,6 +1009,7 @@ public class FrmFuncionario extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jTxtCidade;
     private javax.swing.JTextField jTxtCodigo;
     private javax.swing.JTextField jTxtComplemento;
+    private javax.swing.JPasswordField jTxtConfirmaSenha;
     private javax.swing.JFormattedTextField jTxtCpf;
     private javax.swing.JTextField jTxtEmail;
     private javax.swing.JTextField jTxtEndereco;
@@ -963,6 +1019,8 @@ public class FrmFuncionario extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jTxtRg;
     private javax.swing.JPasswordField jTxtSenha;
     private javax.swing.JFormattedTextField jTxtTelefone;
+    private javax.swing.JLabel lblConfirmaSenha;
+    private javax.swing.JLabel lblSenha;
     private javax.swing.JPanel painel_dados;
     // End of variables declaration//GEN-END:variables
 }
