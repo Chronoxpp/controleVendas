@@ -3,14 +3,6 @@
 CREATE DATABASE BDVENDAS;
 
 
-CREATE USER 'cleber'@'%' IDENTIFIED BY '123';
-
-GRANT ALL ON *.* TO 'cleber'@'%' WITH GRANT OPTION;
-
-
-flush privileges;
-
-
 USE BDVENDAS;
 
 /***** TABELA CLIENTES *****/
@@ -57,7 +49,7 @@ CREATE TABLE tb_funcionarios (
   rg varchar (30),
   cpf varchar (20),
   email varchar(200),
-  senha varchar(10),
+  senha varchar(64),
   cargo varchar(100),
   nivel_acesso varchar(50),
   telefone varchar(30),
