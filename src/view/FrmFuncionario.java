@@ -43,7 +43,6 @@ public class FrmFuncionario extends javax.swing.JFrame {
                 c.getRg(),
                 c.getCpf(),
                 c.getEmail(),
-                c.getSenha(),
                 c.getCargo(),
                 c.getNivel_acesso(),
                 c.getTelefone(),
@@ -505,7 +504,7 @@ public class FrmFuncionario extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Nome", "RG", "CPF", "E-mail", "Senha", "Cargo", "Nível Acesso", "Telefone", "Celular", "Cep", "Endereço", "Nº", "Comp", "Bairro", "Cidade", "UF"
+                "Código", "Nome", "RG", "CPF", "E-mail", "Cargo", "Nível Acesso", "Telefone", "Celular", "Cep", "Endereço", "Nº", "Comp", "Bairro", "Cidade", "UF"
             }
         ));
         jTblFuncionario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -645,7 +644,6 @@ public class FrmFuncionario extends javax.swing.JFrame {
 
     private void jBtnBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnBuscaActionPerformed
         // botao buscar Funcionario  por nome     
-
         String nome = jTxtNome.getText();
         Funcionario obj = new Funcionario();
         FuncionarioDAO dao = new FuncionarioDAO();
@@ -660,7 +658,6 @@ public class FrmFuncionario extends javax.swing.JFrame {
             jTxtRg.setText(obj.getRg());
             jTxtCpf.setText(obj.getCpf());
             jTxtEmail.setText(obj.getEmail());
-            jTxtSenha.setText(obj.getSenha());
             jTxtCargo.setText(obj.getCargo());
             jCBXNivelACesso.setSelectedItem(obj.getNivel_acesso());
 
@@ -691,7 +688,6 @@ public class FrmFuncionario extends javax.swing.JFrame {
             jTxtBairro.setText(obj.getBairro());
             jTxtCidade.setText(obj.getCidade());
             jCbxUF.setSelectedItem(obj.getUf());
-
         }
 
     }//GEN-LAST:event_jTxtCepKeyPressed
@@ -713,7 +709,6 @@ public class FrmFuncionario extends javax.swing.JFrame {
                 c.getRg(),
                 c.getCpf(),
                 c.getEmail(),
-                c.getSenha(),
                 c.getCargo(),
                 c.getNivel_acesso(),
                 c.getTelefone(),
@@ -738,7 +733,6 @@ public class FrmFuncionario extends javax.swing.JFrame {
 
     private void jBtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSalvarActionPerformed
         // boto salvar
-
         Funcionario obj = new Funcionario();
 
         obj.setNome(jTxtNome.getText());
@@ -784,25 +778,21 @@ public class FrmFuncionario extends javax.swing.JFrame {
         jTxtRg.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 2).toString());
         jTxtCpf.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 3).toString());
         jTxtEmail.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 4).toString());
-        jTxtSenha.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 5).toString());
-        jTxtCargo.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 6).toString());
-        jCBXNivelACesso.setSelectedItem(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 7).toString());
-        jTxtTelefone.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 8).toString());
-        jTxtCelular.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 9).toString());
-        jTxtCep.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 10).toString());
-        jTxtEndereco.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 11).toString());
-        jTxtNumero.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 12).toString());
-        jTxtComplemento.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 13).toString());
-        jTxtBairro.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 14).toString());
-        jTxtCidade.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 15).toString());
-        jCbxUF.setSelectedItem(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 16).toString());
-
-
+        jTxtCargo.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 5).toString());
+        jCBXNivelACesso.setSelectedItem(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 6).toString());
+        jTxtTelefone.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 7).toString());
+        jTxtCelular.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 8).toString());
+        jTxtCep.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 9).toString());
+        jTxtEndereco.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 10).toString());
+        jTxtNumero.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 11).toString());
+        jTxtComplemento.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 12).toString());
+        jTxtBairro.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 13).toString());
+        jTxtCidade.setText(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 14).toString());
+        jCbxUF.setSelectedItem(jTblFuncionario.getValueAt(jTblFuncionario.getSelectedRow(), 15).toString());
     }//GEN-LAST:event_jTblFuncionarioMouseClicked
 
     private void jBtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEditarActionPerformed
         // botao editar
-
         Funcionario obj = new Funcionario();
 
         obj.setNome(jTxtNome.getText());
@@ -810,7 +800,6 @@ public class FrmFuncionario extends javax.swing.JFrame {
         obj.setCpf(jTxtCpf.getText());
         obj.setEmail(jTxtEmail.getText());
 
-        obj.setSenha(jTxtSenha.getText());
         obj.setCargo(jTxtCargo.getText());
         obj.setNivel_acesso(jCBXNivelACesso.getSelectedItem().toString());
 
@@ -865,7 +854,6 @@ public class FrmFuncionario extends javax.swing.JFrame {
                 c.getRg(),
                 c.getCpf(),
                 c.getEmail(),
-                c.getSenha(),
                 c.getCargo(),
                 c.getNivel_acesso(),
                 c.getTelefone(),

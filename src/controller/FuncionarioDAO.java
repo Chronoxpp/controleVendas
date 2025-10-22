@@ -161,7 +161,6 @@ public class FuncionarioDAO {
                 obj.setCpf(rs.getString("cpf"));
                 obj.setEmail(rs.getString("email"));
 
-                obj.setSenha(rs.getString("senha"));
                 obj.setCargo(rs.getString("cargo"));
                 obj.setNivel_acesso(rs.getString("nivel_acesso"));
 
@@ -207,7 +206,6 @@ public class FuncionarioDAO {
                 obj.setCpf(rs.getString("cpf"));
                 obj.setEmail(rs.getString("email"));
 
-                obj.setSenha(rs.getString("senha"));
                 obj.setCargo(rs.getString("cargo"));
                 obj.setNivel_acesso(rs.getString("nivel_acesso"));
 
@@ -253,7 +251,6 @@ public class FuncionarioDAO {
                 obj.setCpf(rs.getString("cpf"));
                 obj.setEmail(rs.getString("email"));
 
-                obj.setSenha(rs.getString("senha"));
                 obj.setCargo(rs.getString("cargo"));
                 obj.setNivel_acesso(rs.getString("nivel_acesso"));
 
