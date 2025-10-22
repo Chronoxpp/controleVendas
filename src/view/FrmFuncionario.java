@@ -124,9 +124,8 @@ public class FrmFuncionario extends javax.swing.JFrame {
         jTxtPesquisa = new javax.swing.JTextField();
         jBtnPesquisar = new javax.swing.JButton();
         jBtnNovo = new javax.swing.JButton();
-        jBtnSalvar = new javax.swing.JButton();
-        jBtnEditar = new javax.swing.JButton();
         jBtnExcluir = new javax.swing.JButton();
+        btnSalvaFuncionario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Funcionários");
@@ -596,26 +595,10 @@ public class FrmFuncionario extends javax.swing.JFrame {
         jTabbedPane1.addTab("Consulta de funcionários", jPanel4);
 
         jBtnNovo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jBtnNovo.setText("+ Novo");
+        jBtnNovo.setText("Iniciar novo cadastro");
         jBtnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnNovoActionPerformed(evt);
-            }
-        });
-
-        jBtnSalvar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jBtnSalvar.setText("Salvar");
-        jBtnSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnSalvarActionPerformed(evt);
-            }
-        });
-
-        jBtnEditar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jBtnEditar.setText("Editar");
-        jBtnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnEditarActionPerformed(evt);
             }
         });
 
@@ -624,6 +607,14 @@ public class FrmFuncionario extends javax.swing.JFrame {
         jBtnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnExcluirActionPerformed(evt);
+            }
+        });
+
+        btnSalvaFuncionario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnSalvaFuncionario.setText("Cadastrar");
+        btnSalvaFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvaFuncionarioActionPerformed(evt);
             }
         });
 
@@ -637,13 +628,11 @@ public class FrmFuncionario extends javax.swing.JFrame {
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(271, 271, 271)
-                .addComponent(jBtnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(jBtnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jBtnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGap(280, 280, 280)
+                .addComponent(jBtnNovo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSalvaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBtnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -653,13 +642,12 @@ public class FrmFuncionario extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBtnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBtnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBtnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBtnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                    .addComponent(jBtnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBtnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalvaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
@@ -703,6 +691,8 @@ public class FrmFuncionario extends javax.swing.JFrame {
             jTxtConfirmaSenha.setText("");
             chkAlteraSenha.setEnabled(true);
             ativarCamposAlteracaoSenha(false);
+            
+            btnSalvaFuncionario.setText("Atualizar");
         } else {
             JOptionPane.showMessageDialog(null, "Funcionário  não encontrado!");
         }
@@ -765,43 +755,6 @@ public class FrmFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxtNomeActionPerformed
 
-    private void jBtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSalvarActionPerformed
-        // boto salvar
-        
-        if(! validarSenhas())
-        {
-            JOptionPane.showMessageDialog(null, "As senhas estão diferentes ou vazias. Digite as senhas novamente!");
-            return;
-        }
-        
-        Funcionario obj = new Funcionario();
-
-        obj.setNome(jTxtNome.getText());
-        obj.setRg(jTxtRg.getText());
-        obj.setCpf(jTxtCpf.getText());
-        obj.setEmail(jTxtEmail.getText());
-        obj.setSenha(jTxtSenha.getText());
-        
-        obj.setCargo(jTxtCargo.getText());
-        obj.setNivel_acesso(jCBXNivelACesso.getSelectedItem().toString());
-
-        obj.setTelefone(jTxtTelefone.getText());
-        obj.setCelular(jTxtCelular.getText());
-        obj.setCep(jTxtCep.getText());
-        obj.setEndereco(jTxtEndereco.getText());
-        obj.setNumero(Integer.parseInt(jTxtNumero.getText()));
-        obj.setComplemento(jTxtComplemento.getText());
-        obj.setBairro(jTxtBairro.getText());
-        obj.setCidade(jTxtCidade.getText());
-        obj.setUf(jCbxUF.getSelectedItem().toString());
-
-        FuncionarioDAO dao = new FuncionarioDAO();
-
-        dao.cadastrarFuncionario(obj);
-
-        new Utilitarios().LimpaTela(painel_dados);
-    }//GEN-LAST:event_jBtnSalvarActionPerformed
-
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // Carrega a lista
         listar();
@@ -843,43 +796,9 @@ public class FrmFuncionario extends javax.swing.JFrame {
         jTxtConfirmaSenha.setText("");
         chkAlteraSenha.setEnabled(true);
         ativarCamposAlteracaoSenha(false);
-    }//GEN-LAST:event_jTblFuncionarioMouseClicked
-
-    private void jBtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEditarActionPerformed
-        // botao editar
-        if(! (chkAlteraSenha.isSelected() && validarSenhas()))
-        {
-            JOptionPane.showMessageDialog(null, "As senhas estão diferentes ou vazias. Digite as senhas novamente!");
-            return;
-        }
         
-        Funcionario obj = new Funcionario();
-
-        obj.setNome(jTxtNome.getText());
-        obj.setRg(jTxtRg.getText());
-        obj.setCpf(jTxtCpf.getText());
-        obj.setEmail(jTxtEmail.getText());
-        obj.setSenha(jTxtSenha.getText());
-
-        obj.setCargo(jTxtCargo.getText());
-        obj.setNivel_acesso(jCBXNivelACesso.getSelectedItem().toString());
-
-        obj.setTelefone(jTxtTelefone.getText());
-        obj.setCelular(jTxtCelular.getText());
-        obj.setCep(jTxtCep.getText());
-        obj.setEndereco(jTxtEndereco.getText());
-        obj.setNumero(Integer.parseInt(jTxtNumero.getText()));
-        obj.setComplemento(jTxtComplemento.getText());
-        obj.setBairro(jTxtBairro.getText());
-        obj.setCidade(jTxtCidade.getText());
-        obj.setUf(jCbxUF.getSelectedItem().toString());
-
-        obj.setId(Integer.parseInt(jTxtCodigo.getText()));
-
-        FuncionarioDAO dao = new FuncionarioDAO();
-
-        dao.alterarFuncionario(obj);
-    }//GEN-LAST:event_jBtnEditarActionPerformed
+        btnSalvaFuncionario.setText("Atualizar");
+    }//GEN-LAST:event_jTblFuncionarioMouseClicked
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // botao excluir
@@ -940,6 +859,8 @@ public class FrmFuncionario extends javax.swing.JFrame {
         new Utilitarios().LimpaTela(painel_dados);
         ativarCamposAlteracaoSenha(true);
         chkAlteraSenha.setEnabled(false);
+        
+        btnSalvaFuncionario.setText("Cadastrar");
     }//GEN-LAST:event_jBtnNovoActionPerformed
 
     private boolean verificarAtivacaoCamposAlteracaoSenha()
@@ -950,6 +871,85 @@ public class FrmFuncionario extends javax.swing.JFrame {
     private void chkAlteraSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAlteraSenhaActionPerformed
         ativarCamposAlteracaoSenha(verificarAtivacaoCamposAlteracaoSenha());
     }//GEN-LAST:event_chkAlteraSenhaActionPerformed
+
+    private void btnSalvaFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvaFuncionarioActionPerformed
+        //Realiza cadastro
+        if(jTxtCodigo.getText().length() <= 0)
+        {
+            if(! validarSenhas())
+            {
+                JOptionPane.showMessageDialog(null, "As senhas estão diferentes ou vazias. Digite as senhas novamente!");
+                return;
+            }
+
+            Funcionario obj = new Funcionario();
+
+            obj.setNome(jTxtNome.getText());
+            obj.setRg(jTxtRg.getText());
+            obj.setCpf(jTxtCpf.getText());
+            obj.setEmail(jTxtEmail.getText());
+            obj.setSenha(jTxtSenha.getText());
+
+            obj.setCargo(jTxtCargo.getText());
+            obj.setNivel_acesso(jCBXNivelACesso.getSelectedItem().toString());
+
+            obj.setTelefone(jTxtTelefone.getText());
+            obj.setCelular(jTxtCelular.getText());
+            obj.setCep(jTxtCep.getText());
+            obj.setEndereco(jTxtEndereco.getText());
+            obj.setNumero(Integer.parseInt(jTxtNumero.getText()));
+            obj.setComplemento(jTxtComplemento.getText());
+            obj.setBairro(jTxtBairro.getText());
+            obj.setCidade(jTxtCidade.getText());
+            obj.setUf(jCbxUF.getSelectedItem().toString());
+
+            FuncionarioDAO dao = new FuncionarioDAO();
+
+            dao.cadastrarFuncionario(obj);
+
+            new Utilitarios().LimpaTela(painel_dados);
+        }
+        
+        
+        //Realiza atualizacao de cadastro existente
+        if(jTxtCodigo.getText().length() > 0)
+        {
+            System.out.println("Atualizando");
+            System.out.println("Altera senha:" + chkAlteraSenha.isSelected());
+            if(chkAlteraSenha.isSelected() && ! validarSenhas())
+            {
+                JOptionPane.showMessageDialog(null, "As senhas estão diferentes ou vazias. Digite as senhas novamente!");
+                return;
+            }
+
+            Funcionario obj = new Funcionario();
+
+            obj.setNome(jTxtNome.getText());
+            obj.setRg(jTxtRg.getText());
+            obj.setCpf(jTxtCpf.getText());
+            obj.setEmail(jTxtEmail.getText());
+            obj.setSenha(jTxtSenha.getText());
+
+            obj.setCargo(jTxtCargo.getText());
+            obj.setNivel_acesso(jCBXNivelACesso.getSelectedItem().toString());
+
+            obj.setTelefone(jTxtTelefone.getText());
+            obj.setCelular(jTxtCelular.getText());
+            obj.setCep(jTxtCep.getText());
+            obj.setEndereco(jTxtEndereco.getText());
+            obj.setNumero(Integer.parseInt(jTxtNumero.getText()));
+            obj.setComplemento(jTxtComplemento.getText());
+            obj.setBairro(jTxtBairro.getText());
+            obj.setCidade(jTxtCidade.getText());
+            obj.setUf(jCbxUF.getSelectedItem().toString());
+
+            obj.setId(Integer.parseInt(jTxtCodigo.getText()));
+
+            FuncionarioDAO dao = new FuncionarioDAO();
+
+            dao.alterarFuncionario(obj);
+        }
+    }//GEN-LAST:event_btnSalvaFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -990,13 +990,12 @@ public class FrmFuncionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSalvaFuncionario;
     private javax.swing.JCheckBox chkAlteraSenha;
     private javax.swing.JButton jBtnBusca;
-    private javax.swing.JButton jBtnEditar;
     private javax.swing.JButton jBtnExcluir;
     private javax.swing.JButton jBtnNovo;
     private javax.swing.JButton jBtnPesquisar;
-    private javax.swing.JButton jBtnSalvar;
     private javax.swing.JComboBox<String> jCBXNivelACesso;
     private javax.swing.JComboBox<String> jCbxUF;
     private javax.swing.JLabel jLabel1;
