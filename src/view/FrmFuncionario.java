@@ -302,6 +302,8 @@ public class FrmFuncionario extends javax.swing.JFrame {
 
         lblConfirmaSenha.setText("Confirme a nova senha:");
 
+        jTxtConfirmaSenha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
         chkAlteraSenha.setSelected(true);
         chkAlteraSenha.setText("Alterar senha");
         chkAlteraSenha.setEnabled(false);
@@ -587,7 +589,7 @@ public class FrmFuncionario extends javax.swing.JFrame {
                         .addComponent(jTxtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jBtnPesquisar)))
                 .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
                 .addGap(35, 35, 35))
         );
 
@@ -778,8 +780,8 @@ public class FrmFuncionario extends javax.swing.JFrame {
         obj.setRg(jTxtRg.getText());
         obj.setCpf(jTxtCpf.getText());
         obj.setEmail(jTxtEmail.getText());
-
         obj.setSenha(jTxtSenha.getText());
+        
         obj.setCargo(jTxtCargo.getText());
         obj.setNivel_acesso(jCBXNivelACesso.getSelectedItem().toString());
 
@@ -798,8 +800,6 @@ public class FrmFuncionario extends javax.swing.JFrame {
         dao.cadastrarFuncionario(obj);
 
         new Utilitarios().LimpaTela(painel_dados);
-
-
     }//GEN-LAST:event_jBtnSalvarActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -859,6 +859,7 @@ public class FrmFuncionario extends javax.swing.JFrame {
         obj.setRg(jTxtRg.getText());
         obj.setCpf(jTxtCpf.getText());
         obj.setEmail(jTxtEmail.getText());
+        obj.setSenha(jTxtSenha.getText());
 
         obj.setCargo(jTxtCargo.getText());
         obj.setNivel_acesso(jCBXNivelACesso.getSelectedItem().toString());

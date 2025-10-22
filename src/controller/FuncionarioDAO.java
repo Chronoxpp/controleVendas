@@ -69,39 +69,60 @@ public class FuncionarioDAO {
             JOptionPane.showMessageDialog(null, "Erro: " + erro);
 
         }
-
+    }
+    
+    private boolean temSenha(Funcionario funcionario)
+    {
+        if(funcionario.getSenha().length() > 0)
+        {
+            return true;
+        }
+        
+        return false;
     }
 
     //Metodo Alterar Funcionario
     public void alterarFuncionario(Funcionario obj) {
         try {
-
             //1 passo  - criar o comando sql
-            String sql = "update tb_funcionarios  set  nome=?, rg=?, cpf=?, email=?, senha=md5(?), cargo=?, nivel_acesso =?, telefone=?, celular=?, cep=?, "
-                    + "endereco=?, numero=?,complemento=?,bairro=?,cidade=?, estado=?  where id =?";
+            String sql = "update tb_funcionarios  set  nome=?, rg=?, cpf=?, email=?, cargo=?, nivel_acesso =?, telefone=?, celular=?, cep=?, "
+                    + "endereco=?, numero=?,complemento=?,bairro=?,cidade=?, estado=?";
+            
+            if (temSenha(obj))
+            {
+                sql = sql + ", senha=md5(?)";
+            }
+            
+            sql = sql + "  where id =?";
 
             //2 passo - conectar o banco de dados e organizar o comando sql
+            int i = 0;
+            
             PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setString(1, obj.getNome());
-            stmt.setString(2, obj.getRg());
-            stmt.setString(3, obj.getCpf());
-            stmt.setString(4, obj.getEmail());
+            stmt.setString(++i, obj.getNome());
+            stmt.setString(++i, obj.getRg());
+            stmt.setString(++i, obj.getCpf());
+            stmt.setString(++i, obj.getEmail());
 
-            stmt.setString(5, obj.getSenha());
-            stmt.setString(6, obj.getCargo());
-            stmt.setString(7, obj.getNivel_acesso());
+            stmt.setString(++i, obj.getCargo());
+            stmt.setString(++i, obj.getNivel_acesso());
 
-            stmt.setString(8, obj.getTelefone());
-            stmt.setString(9, obj.getCelular());
-            stmt.setString(10, obj.getCep());
-            stmt.setString(11, obj.getEndereco());
-            stmt.setInt(12, obj.getNumero());
-            stmt.setString(13, obj.getComplemento());
-            stmt.setString(14, obj.getBairro());
-            stmt.setString(15, obj.getCidade());
-            stmt.setString(16, obj.getUf());
+            stmt.setString(++i, obj.getTelefone());
+            stmt.setString(++i, obj.getCelular());
+            stmt.setString(++i, obj.getCep());
+            stmt.setString(++i, obj.getEndereco());
+            stmt.setInt(++i, obj.getNumero());
+            stmt.setString(++i, obj.getComplemento());
+            stmt.setString(++i, obj.getBairro());
+            stmt.setString(++i, obj.getCidade());
+            stmt.setString(++i, obj.getUf());
+            
+            if(temSenha(obj))
+            {
+                stmt.setString(++i, obj.getSenha());
+            }
 
-            stmt.setInt(17, obj.getId());
+            stmt.setInt(++i, obj.getId());
 
             //3 passo - executar o comando sql
             stmt.execute();
