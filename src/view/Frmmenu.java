@@ -43,6 +43,8 @@ public class Frmmenu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lblusuario = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -96,18 +98,30 @@ public class Frmmenu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Melhorias:\n\n- Confirmação de senha ao criar/alterar um funcionario\n- Unificação do botão cadastrar e alterar em um botão só, que se adapta ao contexto em funcionarios\n- Unificação do botão cadastrar e alterar em um botão só, que se adapta ao contexto em clientes\n- Verificação de senhas no cadastro de funcionarios");
+        jScrollPane1.setViewportView(jTextArea1);
+
         painel_desktop.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        painel_desktop.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout painel_desktopLayout = new javax.swing.GroupLayout(painel_desktop);
         painel_desktop.setLayout(painel_desktopLayout);
         painel_desktopLayout.setHorizontalGroup(
             painel_desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(painel_desktopLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         painel_desktopLayout.setVerticalGroup(
             painel_desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painel_desktopLayout.createSequentialGroup()
-                .addGap(0, 396, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 304, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -385,6 +399,8 @@ public class Frmmenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     public javax.swing.JMenu jMnFuncionario;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblusuario;
     public javax.swing.JMenuItem menu_controlevendas;
     public javax.swing.JMenuItem menu_posicao;

@@ -482,7 +482,7 @@ public class FrmFornecedor extends javax.swing.JFrame {
         jTabbedPane1.addTab("Consulta de Fornecedores", jPanel4);
 
         btnnovo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnnovo.setText("+ Novo");
+        btnnovo.setText("Iniciar novo cadastro");
         btnnovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnnovoActionPerformed(evt);

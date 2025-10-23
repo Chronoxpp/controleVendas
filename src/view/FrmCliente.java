@@ -109,9 +109,8 @@ public class FrmCliente extends javax.swing.JFrame {
         jTxtPesquisar = new javax.swing.JTextField();
         btnpesquisar = new javax.swing.JButton();
         jBtnNovo = new javax.swing.JButton();
-        jBtnSalvar = new javax.swing.JButton();
-        jBtnEditar = new javax.swing.JButton();
         jBtnExcluir = new javax.swing.JButton();
+        btnSalvaCliente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Clientes");
@@ -510,26 +509,10 @@ public class FrmCliente extends javax.swing.JFrame {
         jTabbedPane1.addTab("Consulta de clientes", jPanelConsultaClientes);
 
         jBtnNovo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jBtnNovo.setText("+ Novo");
+        jBtnNovo.setText("Iniciar novo cadastro");
         jBtnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnNovoActionPerformed(evt);
-            }
-        });
-
-        jBtnSalvar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jBtnSalvar.setText("Salvar");
-        jBtnSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnSalvarActionPerformed(evt);
-            }
-        });
-
-        jBtnEditar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jBtnEditar.setText("Editar");
-        jBtnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnEditarActionPerformed(evt);
             }
         });
 
@@ -541,6 +524,14 @@ public class FrmCliente extends javax.swing.JFrame {
             }
         });
 
+        btnSalvaCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnSalvaCliente.setText("Cadastrar");
+        btnSalvaCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvaClienteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -548,18 +539,17 @@ public class FrmCliente extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(271, 271, 271)
-                .addComponent(jBtnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(jBtnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jBtnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(jBtnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jBtnNovo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSalvaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBtnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(276, 276, 276))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -567,13 +557,12 @@ public class FrmCliente extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBtnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBtnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalvaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBtnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -606,6 +595,8 @@ public class FrmCliente extends javax.swing.JFrame {
             jTxtBairro.setText(obj.getBairro());
             jTxtCidade.setText(obj.getCidade());
             jCbxUF.setSelectedItem(obj.getUf());
+            
+            btnSalvaCliente.setText("Atualizar");
         } else {
             JOptionPane.showMessageDialog(null, "Cliente não encontrado!");
         }
@@ -664,35 +655,8 @@ public class FrmCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxtNomeActionPerformed
 
-    private void jBtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSalvarActionPerformed
-        // boto salvar
-
-        Cliente obj = new Cliente();
-
-        obj.setNome(jTxtNome.getText());
-        obj.setRg(jTxtRg.getText());
-        obj.setCpf(jTxtCPF.getText());
-        obj.setEmail(jTxtEmail.getText());
-        obj.setTelefone(jTxtFixo.getText());
-        obj.setCelular(jTxtCelular.getText());
-        obj.setCep(jTxtCep.getText());
-        obj.setEndereco(jTxtEndereco.getText());
-        obj.setNumero(Integer.parseInt(jTxtNumero.getText()));
-        obj.setComplemento(jTxtComplemento.getText());
-        obj.setBairro(jTxtBairro.getText());
-        obj.setCidade(jTxtCidade.getText());
-        obj.setUf(jCbxUF.getSelectedItem().toString());
-
-        ClienteDAO dao = new ClienteDAO();
-
-        dao.cadastrarCliente(obj);
-       new utilitarios.Utilitarios().LimpaTela(jPanelDados);
-
-
-    }//GEN-LAST:event_jBtnSalvarActionPerformed
-
     private void jTblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTblClientesMouseClicked
-//        //Pega os dados
+        //Pega os dados
         jTabbedPane1.setSelectedIndex(0);
 
         jTxtCodigo.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 0).toString());
@@ -710,34 +674,8 @@ public class FrmCliente extends javax.swing.JFrame {
         jTxtCidade.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 12).toString());
         jCbxUF.setSelectedItem(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 13).toString());
 
-
+        btnSalvaCliente.setText("Atualizar");
     }//GEN-LAST:event_jTblClientesMouseClicked
-
-    private void jBtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnEditarActionPerformed
-        // botao editar
-        Cliente obj = new Cliente();
-
-        obj.setNome(jTxtNome.getText());
-        obj.setRg(jTxtRg.getText());
-        obj.setCpf(jTxtCPF.getText());
-        obj.setEmail(jTxtEmail.getText());
-        obj.setTelefone(jTxtFixo.getText());
-        obj.setCelular(jTxtCelular.getText());
-        obj.setCep(jTxtCep.getText());
-        obj.setEndereco(jTxtEndereco.getText());
-        obj.setNumero(Integer.parseInt(jTxtNumero.getText()));
-        obj.setComplemento(jTxtComplemento.getText());
-        obj.setBairro(jTxtBairro.getText());
-        obj.setCidade(jTxtCidade.getText());
-        obj.setUf(jCbxUF.getSelectedItem().toString());
-
-        obj.setId(Integer.parseInt(jTxtCodigo.getText()));
-
-        ClienteDAO dao = new ClienteDAO();
-
-        dao.alterarCliente(obj);
-        new utilitarios.Utilitarios().LimpaTela(jPanelDados);
-    }//GEN-LAST:event_jBtnEditarActionPerformed
 
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // botao excluir
@@ -783,7 +721,7 @@ public class FrmCliente extends javax.swing.JFrame {
 
     private void jBtnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnNovoActionPerformed
          new utilitarios.Utilitarios().LimpaTela(jPanelDados);
-         
+         btnSalvaCliente.setText("Cadastrar");
     }//GEN-LAST:event_jBtnNovoActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -793,6 +731,62 @@ public class FrmCliente extends javax.swing.JFrame {
     private void jTxtCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtCepActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxtCepActionPerformed
+
+    private void btnSalvaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvaClienteActionPerformed
+        //Realiza cadastro
+        if(jTxtCodigo.getText().length() <= 0)
+        {
+            Cliente obj = new Cliente();
+
+            obj.setNome(jTxtNome.getText());
+            obj.setRg(jTxtRg.getText());
+            obj.setCpf(jTxtCPF.getText());
+            obj.setEmail(jTxtEmail.getText());
+            obj.setTelefone(jTxtFixo.getText());
+            obj.setCelular(jTxtCelular.getText());
+            obj.setCep(jTxtCep.getText());
+            obj.setEndereco(jTxtEndereco.getText());
+            obj.setNumero(Integer.parseInt(jTxtNumero.getText()));
+            obj.setComplemento(jTxtComplemento.getText());
+            obj.setBairro(jTxtBairro.getText());
+            obj.setCidade(jTxtCidade.getText());
+            obj.setUf(jCbxUF.getSelectedItem().toString());
+
+            ClienteDAO dao = new ClienteDAO();
+
+            dao.cadastrarCliente(obj);
+            new utilitarios.Utilitarios().LimpaTela(jPanelDados);
+        }
+
+        
+        //Realiza atualizacao de cadastro existente
+        if(jTxtCodigo.getText().length() > 0)
+        {
+            // botao editar
+            Cliente obj = new Cliente();
+
+            obj.setNome(jTxtNome.getText());
+            obj.setRg(jTxtRg.getText());
+            obj.setCpf(jTxtCPF.getText());
+            obj.setEmail(jTxtEmail.getText());
+            obj.setTelefone(jTxtFixo.getText());
+            obj.setCelular(jTxtCelular.getText());
+            obj.setCep(jTxtCep.getText());
+            obj.setEndereco(jTxtEndereco.getText());
+            obj.setNumero(Integer.parseInt(jTxtNumero.getText()));
+            obj.setComplemento(jTxtComplemento.getText());
+            obj.setBairro(jTxtBairro.getText());
+            obj.setCidade(jTxtCidade.getText());
+            obj.setUf(jCbxUF.getSelectedItem().toString());
+
+            obj.setId(Integer.parseInt(jTxtCodigo.getText()));
+
+            ClienteDAO dao = new ClienteDAO();
+
+            dao.alterarCliente(obj);
+            new utilitarios.Utilitarios().LimpaTela(jPanelDados);
+        }
+    }//GEN-LAST:event_btnSalvaClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -833,12 +827,13 @@ public class FrmCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSalvaCliente;
+    private javax.swing.JButton btnSalvaFuncionario;
+    private javax.swing.JButton btnSalvaFuncionario1;
     private javax.swing.JButton btnpesquisar;
     private javax.swing.JButton jBtnBuscar;
-    private javax.swing.JButton jBtnEditar;
     private javax.swing.JButton jBtnExcluir;
     private javax.swing.JButton jBtnNovo;
-    private javax.swing.JButton jBtnSalvar;
     private javax.swing.JComboBox<String> jCbxUF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
