@@ -311,8 +311,8 @@ public class Frmmenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void menu_posicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_posicaoActionPerformed
-//        FrmTotalVenda tela = new FrmTotalVenda();
-//        tela.setVisible(true);
+        FrmTotalVenda tela = new FrmTotalVenda();
+        tela.setVisible(true);
     }//GEN-LAST:event_menu_posicaoActionPerformed
 
     private void menu_controlevendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_controlevendasActionPerformed
